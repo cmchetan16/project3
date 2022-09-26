@@ -113,7 +113,7 @@ const validBook = await bookModel.findOne({isDeleted:false,_id:bookId})
 
 
         let deleteReview=await reviewModel.findOneAndUpdate({_id:reviewId,isDeleted:false,bookId:bookId},{isDeleted:true},{new:true})
-            if(!deleteReview) return res.status(404).send({status: false, message: `reviwe is not found` })
+            if(!deleteReview) return res.status(404).send({status: false, message: `review is not found` })
 
 
         let updatebook=await bookModel.findByIdAndUpdate({_id:bookId},{$inc:{reviews:-1}},{new:true})
